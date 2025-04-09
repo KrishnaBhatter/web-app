@@ -38,11 +38,17 @@ docker tag my-web-app registry.example.com/myuser/my-web-app:latest
 
 docker push registry.example.com/myuser/my-web-app:latest
 
-We are considering DigitalOcean platform to create our kubernetes cluster:
+# Considering DigitalOcean platform for kubernetes cluster:
 
-- Install doctl (DigitalOcean CLI) and configure it with your DigitalOcean account.
+- Create DOKS (kubernetes cluster) on DigitalOcean Platform with the steps mentioned in the below link:
 
-doctl auth init
+https://docs.digitalocean.com/products/kubernetes/how-to/create-clusters/
+
+- Install doctl (DigitalOcean CLI) and configure it with your DigitalOcean account with the steps mentioned in the following link:
+
+https://docs.digitalocean.com/reference/doctl/how-to/install/
+
+- To interact with the doks cluster please run this command once doctl is successfully installed:
 
 doctl kubernetes cluster kubeconfig save <cluster-name>
 
