@@ -37,28 +37,35 @@ We are considering DigitalOcean platform to create our kubernetes cluster:
 - Install doctl (DigitalOcean CLI) and configure it with your DigitalOcean account.
 
 doctl auth init
+
 doctl kubernetes cluster kubeconfig save <cluster-name>
 
 - Verify the Kubernetes connection:
 
 kubectl get nodes
 
-Once got the connection is verified you can run the below commands to apply the following configuration .yaml files:
+- Once got the connection is verified you can run the below command to apply the following configuration .yaml files:
 
 kubectl apply -f deployment.yaml
 
-Install Metrics Server to your cluster:
+- Install Metrics Server to your cluster:
+  
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
-Verify the Metric Server functioning:
+- Verify the Metric Server functioning:
+  
 kubectl top nodes
+
+- Now, configure the horizontal pod autoscaling using the below command to apply the .yaml configuration file:
 
 kubectl apply -f hpa.yaml
 
-Verify the components created by the above files via these commands:
+- Verify the components created by the above files via these commands:
 
 kubectl get deployments
+
 kubectl get services
+
 kubectl get hpa
 
 OR
