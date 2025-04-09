@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: login-app
+  template:
+    metadata:
+      labels:
+        app: login-app
+    spec:
+      containers:
+      - name: login-app
+        image: krishnabhatter18/demo-web-app:login # Replace with your DockerHub image if pushed to registry
+        resources:
+          requests:
+            cpu: "200m"  # Minimum CPU requested by the pod
+            memory: "512Mi"
+          limits:
+            cpu: "500m"  # Maximum CPU the pod can use
+            memory: "1Gi"
+        ports:
+        - containerPort: 5000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: login-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: login-app
+  ports:
+    - name: http
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
