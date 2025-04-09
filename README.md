@@ -46,6 +46,13 @@ kubectl get nodes
 Once got the connection is verified you can run the below commands to apply the following configuration .yaml files:
 
 kubectl apply -f deployment.yaml
+
+Install Metrics Server to your cluster:
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+Verify the Metric Server functioning:
+kubectl top nodes
+
 kubectl apply -f hpa.yaml
 
 Verify the components created by the above files via these commands:
