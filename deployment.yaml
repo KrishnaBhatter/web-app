@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: login-app
 spec:
-  replicas: 2
   selector:
     matchLabels:
       app: login-app
