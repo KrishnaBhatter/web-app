@@ -22,14 +22,20 @@ Now, to push this image to docker hub registry or your private registry you can 
 
 #Please note you need to create a repositiory on docker hub before using this commands.
 
-Docker Hub commands:
+# Docker Hub commands:
+
 docker login
+
 docker tag local-image-name your-dockerhub-username/repo-name:tag
+
 docker push your-dockerhub-username/repo-name:tag
 
-Private Registry commands:
+# Private Registry commands:
+
 docker login registry.example.com
+
 docker tag my-web-app registry.example.com/myuser/my-web-app:latest
+
 docker push registry.example.com/myuser/my-web-app:latest
 
 We are considering DigitalOcean platform to create our kubernetes cluster:
